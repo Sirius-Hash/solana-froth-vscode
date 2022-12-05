@@ -1,0 +1,32 @@
+.wallet-card {
+  background: var(--vscode-dropdown-border);
+  padding: 2em 1.5em;
+  margin: 1em 0 5em;
+  border-radius: 20px;
+}
+
+.wallet-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.balance-header {
+  margin-bottom: 0;
+}
+
+.address-short {
+  font-size: 1.5em;
+}
+
+.wallet-balance {
+  display: flex;
+  font-size: 3em;
+  align-items: baseline;
+}
+
+.sol-text {
+  font-size: 0.5em;
+  margin-left: 0.5em;
+}
