@@ -2,7 +2,7 @@
   "name": "solana-froth",
   "displayName": "solana-froth",
   "description": "",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sirius-Hash/solana-froth-vscode.git"
