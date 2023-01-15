@@ -21,11 +21,25 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "refresh": {
+          await vscode.commands.executeCommand("solana-froth.refresh");
+          break;
+        }
         case "onInfo": {
           if (!data.value) {
             return;
           }
           vscode.window.showInformationMessage(data.value);
+          break;
+        }
+        case "onAddressCopiedToClipboard": {
+          if (!data.value) {
+            vscode.window.showErrorMessage("Sorry, can't get the address.");
+            return;
+          }
+          vscode.window.showInformationMessage(
+            `Wallet address is copied to clipboard:\n ${data.value}`
+          );
           break;
         }
         case "onError": {

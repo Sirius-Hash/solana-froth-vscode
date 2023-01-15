@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
 
   let walletAddress = "";
-  let walletBalance = "";
-  let walletAddressShort = "";
+  let walletBalance = "NaN"; // this value is set intentionally
+  let walletAddressShort = "loading...";
 
   onMount(() => {
     // Handle messages sent from the extension to the webview
@@ -26,24 +26,37 @@
       }
     });
   });
+
+  const copyAddressToClipboard = () => {
+    navigator.clipboard.writeText(walletAddress).then(() => {
+      tsvscode.postMessage({
+        type: "onAddressCopiedToClipboard",
+        value: walletAddress,
+      });
+    });
+  };
 </script>
 
-<div>
-  <h2>🔏 WALLET</h2>
+<div class="bottom-box">
+  <h2>🔏 Wallet</h2>
 
   <div class="wallet-card">
     <div class="wallet-box">
       <div class="address-short">{walletAddressShort}</div>
+
       <div>
-        <button>copy</button>
+        <button
+          disabled={!walletAddress?.length}
+          on:click={copyAddressToClipboard}>copy</button
+        >
       </div>
     </div>
 
     <div class="wallet-box balance-header">
-      <div>Wallet Balance</div>
-      <div>
-        <button>airdrop 1 SOL</button>
-      </div>
+      <div class="title">Wallet Balance</div>
+      <!-- <div>
+        <button disabled>airdrop 1 SOL</button>
+      </div> -->
     </div>
 
     <div class="wallet-balance">

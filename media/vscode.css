@@ -55,6 +55,11 @@ button {
   background: var(--vscode-button-background);
 }
 
+button:disabled {
+  opacity: 0.25;
+  cursor: default !important;
+}
+
 button:hover {
   cursor: pointer;
   background: var(--vscode-button-hoverBackground);

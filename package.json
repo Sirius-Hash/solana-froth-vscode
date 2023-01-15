@@ -10,8 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:solana-froth.helloWorld",
     "onCommand:solana-froth.refresh",
+    "onCommand:solana-froth.refresh-view",
     "onView:solana-froth-sidebar"
   ],
   "main": "./dist/extension.js",
@@ -38,12 +38,12 @@
     },
     "commands": [
       {
-        "command": "solana-froth.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "solana-froth.refresh",
         "title": "Refresh"
+      },
+      {
+        "command": "solana-froth.refresh-view",
+        "title": "Refresh View"
       }
     ]
   },

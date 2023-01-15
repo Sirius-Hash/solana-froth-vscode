@@ -1,37 +1,31 @@
 <script lang="ts">
   import { onMount } from "svelte";
+
+  enum Status {
+    Disabled,
+    Loading,
+    Connected,
+    Failed,
+  }
+
   import Loader from "./Loader.svelte";
-  import DisclosureWidget from "./DisclosureWidget.svelte";
-  import Wallet from "./Wallet.svelte";
+  import InfoScreen from "./InfoScreen.svelte";
+  import DisabledScreen from "./DisabledScreen.svelte";
   import "sidebar.css";
 
-  let config = "";
-  let configJsonRpcUrl = "";
-  let configNetworkName = "";
-  let epochInfo = "";
-  let walletTXHistory = "";
   let solanaCliVersion = "";
+  let status = Status.Loading;
+  $: statusText = getStatusText(status);
+  $: statusClass = getStatusClass(status);
+  $: console.log("Status changed", status);
 
   onMount(() => {
     // Handle messages sent from the extension to the webview
     window.addEventListener("message", (event) => {
       const message = event.data; // The json data that the extension sent
       switch (message.type) {
-        case "configJsonRpcUrl":
-          configJsonRpcUrl = message.value?.split("URL:")[1];
-          configNetworkName = configJsonRpcUrl?.split("api.")[1].split(".")[0];
-          break;
-
-        case "config":
-          config = message.value;
-          break;
-
-        case "epochInfo":
-          epochInfo = message.value;
-          break;
-
-        case "walletTXHistory":
-          walletTXHistory = message.value;
+        case "status":
+          status = message.value;
           break;
 
         case "solanaCliVersion":
@@ -40,53 +34,76 @@
       }
     });
   });
+
+  const getStatusText = (status: Status) => {
+    switch (status) {
+      case Status.Loading:
+        return "CONNECTING...";
+
+      case Status.Connected:
+        return "CONNECTED";
+
+      case Status.Failed:
+      case Status.Disabled:
+      default:
+        return "NOT CONNECTED";
+    }
+  };
+
+  const getStatusClass = (status: Status) => {
+    switch (status) {
+      case Status.Loading:
+        return "loading";
+
+      case Status.Connected:
+        return "connected";
+
+      case Status.Failed:
+        return "error";
+
+      case Status.Disabled:
+      default:
+        return "disabled";
+    }
+  };
 </script>
 
-<div class="sidebar-wrapper">
-  <!-- <Loader /> -->
-
+<div class="flex-col">
   <div class="status-box">
-    <div class="icon">
+    <div class={`icon ${statusClass}`}>
       <i class="codicon codicon-circle-filled" />
     </div>
-    <div class="status-text">CONNECTED</div>
+    <div class="status-text">{statusText}</div>
   </div>
 
-  <div class="network-box">
-    {#if configJsonRpcUrl}
-      <div class="network">
-        <h2>{configNetworkName}</h2>
-        <p>{configJsonRpcUrl}</p>
-      </div>
+  <div class="flex-col">
+    {#if status === Status.Loading}
+      <Loader />
+    {:else if status === Status.Connected}
+      <InfoScreen />
+    {:else if status === Status.Disabled}
+      <DisabledScreen />
+    {:else}
+      <div>Something goes wrong...</div>
     {/if}
-
-    <DisclosureWidget title="Config File" description={config} />
-
-    <DisclosureWidget title="Epoch Info" description={epochInfo} />
-
-    <DisclosureWidget
-      title="Wallet Transaction History"
-      description={walletTXHistory}
-    />
   </div>
 
   <div class="bottom-box">
-    <Wallet />
-
-    <button
-      on:click={() => {
-        tsvscode.postMessage({
-          type: "onInfo",
-          value: "🔥",
-        });
-      }}
-    >
-      Refresh
-    </button>
-    <br />
-
-    <div>
+    <hr />
+    <div class="cli-box">
       <div>
+        <button
+          on:click={() => {
+            tsvscode.postMessage({
+              type: "refresh",
+              value: "",
+            });
+          }}
+        >
+          Refresh
+        </button>
+      </div>
+      <div class="cli-version">
         {solanaCliVersion}
       </div>
     </div>
