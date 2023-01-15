@@ -3,6 +3,11 @@
   "displayName": "solana-froth",
   "description": "",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sirius-Hash/solana-froth-vscode.git"
+  },
+  "publisher": "SiriusHash",
   "engines": {
     "vscode": "^1.73.0"
   },
