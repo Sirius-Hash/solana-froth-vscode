@@ -16,7 +16,9 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.
 
-# How to build
+# Development
+
+## How to build
 
 1. run webpack watch
 
