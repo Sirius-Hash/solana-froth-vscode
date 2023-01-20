@@ -2,6 +2,10 @@
 
 <img width="1068" alt="Screenshot 2023-01-20 at 2 34 38 PM" src="https://user-images.githubusercontent.com/188568/213696229-0b39de74-863b-492e-add8-c15d35339f4f.png">
 
+## Installation
+
+Install extention via [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=SiriusHash.solana-froth)
+
 ## Motivation
 
 The main motivation for this vscode extention is to create simple UI for interaction with local Solana CLI and local wallets.
@@ -16,7 +20,9 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.
 
-# How to build
+# Development
+
+## How to build
 
 1. run webpack watch
 
