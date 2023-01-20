@@ -2,6 +2,10 @@
 
 <img width="1068" alt="Screenshot 2023-01-20 at 2 34 38 PM" src="https://user-images.githubusercontent.com/188568/213696229-0b39de74-863b-492e-add8-c15d35339f4f.png">
 
+## Installation
+
+Install extention via [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=SiriusHash.solana-froth)
+
 ## Motivation
 
 The main motivation for this vscode extention is to create simple UI for interaction with local Solana CLI and local wallets.
