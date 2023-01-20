@@ -5,6 +5,11 @@
   border-radius: 20px;
 }
 
+body.vscode-high-contrast .wallet-card {
+  background: transparent;
+  border: 1px solid var(--vscode-dropdown-border);
+}
+
 .wallet-box {
   height: 3em;
   display: flex;
@@ -29,6 +34,7 @@
   display: flex;
   font-size: 2.5em;
   align-items: baseline;
+  overflow-y: auto;
 }
 
 .sol-text {

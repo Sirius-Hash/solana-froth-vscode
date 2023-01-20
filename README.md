@@ -9,7 +9,7 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 
 ## The Plan
 
-- [ ] **Phase 1** would be display Solana' configs & wallet info in VSCode sidebar in simplest form.
+- [ ] **Phase 1** display Solana' configs & wallet info in VSCode sidebar in simplest form.
 - [ ] **Phase 2** is about adding basic interaction with CLI. e.g. change network from sidebar, change active wallet with dropdown/open dialog, create new wallet, etc.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.

@@ -55,6 +55,11 @@ button {
   background: var(--vscode-button-background);
 }
 
+body.vscode-high-contrast button {
+  background: transparent;
+  border: 1px solid var(--vscode-button-border);
+}
+
 button:disabled {
   opacity: 0.25;
   cursor: default !important;

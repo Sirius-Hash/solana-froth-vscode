@@ -173,5 +173,6 @@
 
 hr {
   border-color: var(--vscode-dropdown-background);
+  border-bottom: none;
   margin-bottom: 2em;
 }
