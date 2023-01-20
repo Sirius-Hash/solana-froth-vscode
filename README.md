@@ -1,4 +1,4 @@
-# 🌊 Solana Froth VSCode Extention
+# 🌊 Solana Froth Sidebar
 
 ## Motivation
 
