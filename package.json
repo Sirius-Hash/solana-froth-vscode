@@ -2,7 +2,7 @@
   "name": "solana-froth",
   "displayName": "Solana Froth",
   "description": "Info about Solana blockchain and wallets.",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "license": "MIT",
   "icon": "media/logo.jpg",
   "repository": {
