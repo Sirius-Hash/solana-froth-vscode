@@ -3,6 +3,8 @@
   "displayName": "Solana Froth",
   "description": "Info about Solana blockchain and wallets.",
   "version": "0.8.0",
+  "license": "MIT",
+  "icon": "media/logo.jpg",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sirius-Hash/solana-froth-vscode.git"
@@ -13,6 +15,12 @@
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "Solana",
+    "Anchor",
+    "Web3",
+    "Rust"
   ],
   "activationEvents": [
     "onCommand:solana-froth.refresh",
