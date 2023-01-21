@@ -25,3 +25,7 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.
 
+
+## Contribution
+
+All contribution are welcome! Please check [Contributing Page](https://github.com/Sirius-Hash/solana-froth-vscode/blob/main/CONTRIBUTING.md) for the details.
