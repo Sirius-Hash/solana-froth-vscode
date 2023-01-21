@@ -25,16 +25,3 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.
 
-# Development
-
-## How to build
-
-1. run webpack watch
-
-```shell
-npm run watch
-```
-
-2. then start debug version of VS Code with `F5` key.
-
-after any change-save you can update debug window focusing it and pressing `CMD + R`.
