@@ -1,10 +1,15 @@
 # 🌊 Solana Froth Sidebar
 
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/i/SiriusHash.solana-froth?label=vscode%20installs)](https://marketplace.visualstudio.com/items?itemName=SiriusHash.solana-froth)
+
+Get info about Solana blockchain and wallets from vscode.
+
 <img width="1068" alt="Screenshot 2023-01-20 at 2 34 38 PM" src="https://user-images.githubusercontent.com/188568/213696229-0b39de74-863b-492e-add8-c15d35339f4f.png">
 
-## Installation
+## Usage
 
-Install extention via [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=SiriusHash.solana-froth)
+- Install [Solana Tool Suite](https://docs.solana.com/cli/install-solana-cli-tools)
+- Install extention via [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=SiriusHash.solana-froth)
 
 ## Motivation
 
@@ -15,7 +20,7 @@ The project is open-sourced. It is open and welcomed for contribution by anyone.
 
 ## The Plan
 
-- [ ] **Phase 1** display Solana' configs & wallet info in VSCode sidebar in simplest form.
+- [X] **Phase 1** display Solana' configs & wallet info in VSCode sidebar in simplest form.
 - [ ] **Phase 2** is about adding basic interaction with CLI. e.g. change network from sidebar, change active wallet with dropdown/open dialog, create new wallet, etc.
 - [ ] **Phase 3** is about listing info about Solana program you currently develop. Add basic actions like build, deploy, test.
 - [ ] **Pahse 4** is about adding similar fn for Anchor apps.
