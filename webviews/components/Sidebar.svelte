@@ -17,7 +17,6 @@
   let status = Status.Loading;
   $: statusText = getStatusText(status);
   $: statusClass = getStatusClass(status);
-  $: console.log("Status changed", status);
 
   onMount(() => {
     // Handle messages sent from the extension to the webview

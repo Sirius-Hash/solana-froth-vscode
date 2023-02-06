@@ -42,6 +42,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           );
           break;
         }
+        case "airdropSol": {
+          await vscode.commands.executeCommand("solana-froth.airdropSol");
+          break;
+        }
         case "onError": {
           if (!data.value) {
             return;
@@ -81,9 +85,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     const codiconsUri = webview.asWebviewUri(
       vscode.Uri.joinPath(
         this._extensionUri,
-        "node_modules",
-        "@vscode/codicons",
-        "dist",
+        "media",
+        "codicons",
         "codicon.css"
       )
     );

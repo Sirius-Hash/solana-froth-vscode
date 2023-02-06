@@ -99,3 +99,25 @@ input::placeholder,
 textarea::placeholder {
   color: var(--vscode-input-placeholderForeground);
 }
+
+button.icon-button {
+  border-radius: 6px;
+  color: var(--vscode-editor-foreground);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+button.icon-button .codicon {
+  font-size: 24px;
+}
+
+button.icon-button:hover {
+  background-color: rgba(112, 122, 132, 0.19);
+}
+
+button.icon-button:disabled:hover {
+  background: transparent;
+}

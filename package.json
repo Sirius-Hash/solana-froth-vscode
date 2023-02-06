@@ -1,7 +1,7 @@
 {
   "name": "solana-froth",
   "displayName": "Solana Froth",
-  "description": "Info about Solana blockchain and wallets.",
+  "description": "Useful Solana extension.",
   "version": "0.8.2",
   "license": "MIT",
   "icon": "media/logo.jpg",
@@ -25,6 +25,7 @@
   "activationEvents": [
     "onCommand:solana-froth.refresh",
     "onCommand:solana-froth.refresh-view",
+    "onCommand:solana-froth.airdropSol",
     "onView:solana-froth-sidebar"
   ],
   "main": "./dist/extension.js",
@@ -53,12 +54,17 @@
       {
         "command": "solana-froth.refresh",
         "category": "Solana Froth",
-        "title": "Refresh"
+        "title": "Refresh Info"
       },
       {
         "command": "solana-froth.refresh-view",
         "category": "Solana Froth",
         "title": "Refresh View"
+      },
+      {
+        "command": "solana-froth.airdropSol",
+        "category": "Solana Froth",
+        "title": "Airdrop 1 SOL"
       }
     ]
   },

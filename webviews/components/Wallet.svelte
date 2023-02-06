@@ -1,28 +1,40 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  const loadingWalletBalance = "-";
   let walletAddress = "";
-  let walletBalance = "NaN"; // this value is set intentionally
+  let walletBalance = loadingWalletBalance;
   let walletAddressShort = "loading...";
+  let airdropInProgress = false;
+  let ifMainnet = true;
 
   onMount(() => {
     // Handle messages sent from the extension to the webview
     window.addEventListener("message", (event) => {
       const message = event.data; // The json data that the extension sent
       switch (message.type) {
+        case "configJsonRpcUrl":
+          ifMainnet = message.value?.includes("mainnet") ? true : false;
+          break;
         case "walletAddress":
-          walletAddress = message.value;
-          if (walletAddress) {
-            walletAddressShort = `${walletAddress.slice(
-              0,
-              4
-            )} *** ${walletAddress.slice(-5)}`;
+          if (message.value !== walletAddress) {
+            walletBalance = loadingWalletBalance;
+            walletAddress = message.value;
+            if (walletAddress) {
+              walletAddressShort = `${walletAddress.slice(
+                0,
+                4
+              )} *** ${walletAddress.slice(-5)}`;
+            }
           }
+
           break;
 
         case "walletBalance":
           walletBalance = message.value.replace("SOL", "").trim();
           break;
+        case "airdropSolDone":
+          airdropInProgress = false;
       }
     });
   });
@@ -33,6 +45,14 @@
         type: "onAddressCopiedToClipboard",
         value: walletAddress,
       });
+    });
+  };
+
+  const airdropSol = () => {
+    airdropInProgress = true;
+    tsvscode.postMessage({
+      type: "airdropSol",
+      value: null,
     });
   };
 </script>
@@ -46,17 +66,26 @@
 
       <div>
         <button
+          class="icon-button"
+          on:click={copyAddressToClipboard}
+          title="Copy Wallet Address"
           disabled={!walletAddress?.length}
-          on:click={copyAddressToClipboard}>copy</button
         >
+          <i class="codicon codicon-copy" />
+        </button>
       </div>
     </div>
 
     <div class="wallet-box balance-header">
       <div class="title">Wallet Balance</div>
-      <!-- <div>
-        <button disabled>airdrop 1 SOL</button>
-      </div> -->
+      {#if !ifMainnet}
+        <div>
+          <button
+            disabled={!walletAddress?.length || airdropInProgress}
+            on:click={airdropSol}>airdrop 1 SOL</button
+          >
+        </div>
+      {/if}
     </div>
 
     <div class="wallet-balance">

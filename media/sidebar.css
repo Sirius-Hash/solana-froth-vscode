@@ -58,7 +58,6 @@
   overflow: auto;
   background: rgba(255, 255, 255, 0.1);
   padding: 1em 1em 0.5em 1em;
-  border-radius: 20px;
   margin: 1em 0;
   line-height: 1.5em;
 }
@@ -160,7 +159,8 @@
 .flex-col {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  flex: 1;
 }
 
 .bottom-box {

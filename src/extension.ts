@@ -130,6 +130,37 @@ export function activate(context: vscode.ExtensionContext) {
       // }, 500);
     })
   );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("solana-froth.airdropSol", async () => {
+      try {
+        vscode.window.showInformationMessage(
+          `Solana Froth: Requesting airdrop of 1 SOL.`
+        );
+
+        const result = await execShell("solana airdrop 1");
+        vscode.window.showInformationMessage(`Solana Froth: ${result}`);
+        console.log("result: ", result);
+      } catch (error) {
+        // if CLI failed to run assume CLI isn't installed
+        if (error instanceof Error) {
+          const notFoundMsg = "command not found";
+
+          if (error.message.includes(notFoundMsg)) {
+            // setLoadingStatus(Status.Disabled, sidebarProvider);
+          }
+          vscode.window.showInformationMessage(
+            `Solana Froth: ${error.message}`
+          );
+        }
+      } finally {
+        sidebarProvider._view?.webview.postMessage({
+          type: "airdropSolDone",
+          value: true,
+        });
+      }
+    })
+  );
 }
 
 // This method is calle d when your extension is deactivated
