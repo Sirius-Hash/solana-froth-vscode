@@ -4,7 +4,8 @@
 
 Get info about Solana blockchain and wallets from vscode.
 
-<img width="1068" alt="Screenshot 2023-01-20 at 2 34 38 PM" src="https://user-images.githubusercontent.com/188568/213696229-0b39de74-863b-492e-add8-c15d35339f4f.png">
+<img width="887" alt="Solana Froth Extension" src="https://user-images.githubusercontent.com/188568/216974911-3981e85f-e611-4394-80dd-1dd9c93a764a.png">
+
 
 ## Usage
 
